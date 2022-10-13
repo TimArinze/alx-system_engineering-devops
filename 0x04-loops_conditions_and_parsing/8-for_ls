@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+# Bash script that display the content of the current directory
+# Where only the part of the name after the first dash is displayed
+ls | cut -d'-' -f2
