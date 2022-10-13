@@ -9,6 +9,6 @@ do
 		echo "good luck"
 	else
 		echo "Best School"
-	((i++))
 	fi
+	((i++))
 done
