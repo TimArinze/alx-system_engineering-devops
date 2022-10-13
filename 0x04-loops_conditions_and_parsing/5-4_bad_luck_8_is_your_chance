@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 # A script that makes use of if, elif and else
-i = 0
+i=0
 while ((i < 10));
 do
 	if ((i == 3)); then
@@ -9,6 +9,6 @@ do
 		echo "good luck"
 	else
 		echo "Best School"
-	fi
 	((i++))
+	fi
 done
