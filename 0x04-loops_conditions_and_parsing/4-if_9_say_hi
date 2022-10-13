@@ -1,11 +1,11 @@
 #!/usr/bin/env bash
 # A bash script that displays Best School 10 times, 9th iteration is Hi
 i=0
-while ((i < 10))
+while ((i < 11))
 do
-	if ((i == 8)); then
+	if ((i == 9)); then
 		echo "Hi"
-	elif ((i != 8)); then
+	elif ((i != 9)); then
 		echo "Best School"
 	fi
 	((i++))
