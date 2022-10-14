@@ -1,0 +1,3 @@
+#!/usr/bin/env bash
+# We stopped our process with kill
+kill
