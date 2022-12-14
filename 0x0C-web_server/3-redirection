@@ -1,0 +1,9 @@
+#!/usr/bin/env bash
+
+# Redirection
+
+old_text = 'location / {'
+new_text = 'location /redirect_me {
+\treturn 301 https://www.youtube.com/watch?v=QH2-TGUlwu4;'
+sed -i 's/$old_text/$new_text/g' /etc/nginx/sites-available/default
+service nginx start
