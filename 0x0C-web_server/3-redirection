@@ -7,4 +7,4 @@ sudo echo 'Hello World!' | sudo tee /var/www/html/index.html
 new_config="\n\treturn 301 https://www.youtube.com/watch?v=QH2-TGUlwu4;\n"
 FILE="/etc/nginx/sites-available/default"
 sudo sed -i "42i\ $new_config" "$FILE"
-sudo service nginx restart
+sudo service nginx start
