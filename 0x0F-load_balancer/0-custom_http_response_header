@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# Redirection
+# Double the number of webservers
 sudo apt-get update
 sudo apt-get -y install nginx
 sudo echo 'Hello World!' | sudo tee /var/www/html/index.html
@@ -11,4 +11,4 @@ HEADER="\n\tadd_header X-Served-By 60552-web-01;\n\tlocation / {\n\t\tadd_header
 sudo sed -i "47i\ $REDIRECT" "$FILE"
 sudo sed -i "47i\ $ERROR" "$FILE"
 sudo sed -i "47i\ $HEADER" "$FILE"
-sudo service nginx start
+service nginx restart
