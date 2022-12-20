@@ -1,0 +1,12 @@
+#!/usr/bin/env bash
+# Redirection
+sudo apt-get update
+sudo apt-get -y install nginx
+sudo echo 'Hello World!' | sudo tee /var/www/html/index.html
+sudo echo "Ceci n'est pas une page" | sudo tee /var/www/html/custom_404.html
+REDIRECT="\n\tlocation /redirect_me {\n\t\treturn 301 https://www.youtube.com/watch?v=QH2-TGUlwu4;\n\t}\n"
+FILE="/etc/nginx/sites-available/default"
+ERROR="\terror_page 404/custom_404.html;\n\tlocation = /custom_404.html {\n\t\troot /var/www/html;\n\t\tinternal;\n\t}\n"
+sudo sed -i "47i\ $REDIRECT" "$FILE"
+sudo sed -i "47i\ $ERROR" "$FILE"
+service nginx start
