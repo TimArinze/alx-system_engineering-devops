@@ -1,0 +1,5 @@
+#!/usr/bin/env bash
+# Install your load balancer
+sudo add-apt-repository ppa:vbernat/haproxy-2.0
+sudo apt update
+sudo apt install -y haproxy
