@@ -6,4 +6,4 @@ sudo echo 'Hello World!' | sudo tee /var/www/html/index.html
 FILE="/etc/nginx/sites-available/default"
 HEADER="\n\tadd_header X-Served-By $hostname;\n\tlocation / {\n\t\tadd_header X-Served-By $hostname;\n\t}\n"
 sudo sed -i "47i\ $HEADER" "$FILE"
-sudo service nginx restart
+service nginx restart
