@@ -1,10 +1,2 @@
-server {
-        listen 80 default_server;
-      	root /usr/share/nginx/html;
-        index index.html index.htm;
-        server_name localhost;
-        location / {
-                try_files  / =404;
-        }
  * Restarting nginx nginx
    ...fail!
