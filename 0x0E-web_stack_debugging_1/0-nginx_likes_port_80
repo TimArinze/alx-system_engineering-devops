@@ -9,5 +9,5 @@ content="server {
         location / {
                 try_files $uri $uri/ =404;
         }"
-sudo echo "$content" >> /etc/nginx/sites-enabled/default
+sudo echo "$content" > /etc/nginx/sites-enabled/default
 sudo service nginx restart
