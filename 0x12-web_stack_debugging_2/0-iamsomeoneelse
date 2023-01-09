@@ -1,0 +1,5 @@
+#!/usr/bin/env bash
+# Run software as another user
+if [ "$#" -gt "0" ]; then
+	su - $1 -c "whoami"
+fi
