@@ -17,13 +17,13 @@ if __name__ == "__main__":
     usersTotalTasks = requests.get(user_todos).json()
     totalNumberOfTasks = len(usersTotalTasks)
     data = []
-    header = ["USER_ID", "USERNAME", "TASK_COMPLETED_STATUS", "TASK_TITLE"]
+    header = ["userId", "username", "completed", "title"]
     for task in usersTotalTasks:
         dicts = {}
-        dicts.update({"USER_ID": argv[1],
-                     "USERNAME": employeeDetails['username'],
-                      "TASK_COMPLETED_STATUS": task.get("completed"),
-                      "TASK_TITLE": task.get("title")})
+        dicts.update({"userId": argv[1],
+                     "username": employeeDetails['username'],
+                      "completed": task.get("completed"),
+                      "title": task.get("title")})
         data.append(dicts)
 
     with open('{}.csv'.format(argv[1]), 'w', encoding='UTF8') as f:
