@@ -19,12 +19,10 @@ if __name__ == "__main__":
     data = []
     header = ["USER_ID", "USERNAME", "TASK_COMPLETED_STATUS", "TASK_TITLE"]
     for task in usersTotalTasks:
-        lists = []
-        lists.append(argv[1])
-        lists.append(employeeDetails['username'])
-        lists.append(task.get("completed"))
-        lists.append(task.get("title"))
-        dicts = dict(zip(header, lists))
+        dicts = {}
+        dicts.update({"USER_ID": argv[1], "USERNAME": employeeDetails['username'],
+                     "TASK_COMPLETED_STATUS": task.get("completed"),
+                     "TASK_TITLE": task.get("title")})
         data.append(dicts)
 
     with open('{}.csv'.format(argv[1]), 'w', encoding='UTF8') as f:
