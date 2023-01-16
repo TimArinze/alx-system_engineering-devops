@@ -21,7 +21,7 @@ if __name__ == "__main__":
     for task in usersTotalTasks:
         lists = []
         lists.append(argv[1])
-        lists.append(employeeName.split(' ')[1])
+        lists.append(employeeDetails['username'])
         lists.append(task.get("completed"))
         lists.append(task.get("title"))
         dicts = dict(zip(header, lists))
