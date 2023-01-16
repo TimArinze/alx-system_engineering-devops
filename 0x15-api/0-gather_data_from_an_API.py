@@ -17,7 +17,7 @@ if __name__ == "__main__":
     totalNumberOfTasks = len(usersTotalTasks)
     listOfCompleted = []
     for task in usersTotalTasks:
-        if task.get("completed") == True:
+        if task.get("completed") is True:
             listOfCompleted.append(task)
     numberOfDoneTask = len(listOfCompleted)
     print("Employee {} is done with tasks({}/{}):".
