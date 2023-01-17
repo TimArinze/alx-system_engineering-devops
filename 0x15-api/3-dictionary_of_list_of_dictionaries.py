@@ -16,15 +16,17 @@ if __name__ == "__main__":
 
     dictionary = {}
     for user_id in list_user_ids:
-        todos = requests.get("{}/user/{}/todos".format(main_url, int(user_id))).json()
-        user_res = requests.get("{}/users/{}".format(main_url, int(user_id))).json()
+        todos = requests.get("{}/user/{}/todos".format(main_url,
+                             int(user_id))).json()
+        user_res = requests.get("{}/users/{}".format(main_url,
+                                int(user_id))).json()
         data = []
         username = user_res.get("username")
         for task in todos:
             dicts = {}
             dicts.update({"username": username,
-                        "task": task.get("title"),
-                        "completed": task.get("completed")})
+                         "task": task.get("title"),
+                          "completed": task.get("completed")})
             data.append(dicts)
         dictionary.update({user_id: data})
     with open('todo_all_employees.json', 'w', encoding='UTF8') as f:
