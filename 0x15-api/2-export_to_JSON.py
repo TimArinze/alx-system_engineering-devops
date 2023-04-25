@@ -13,13 +13,15 @@ if __name__ == "__main__":
     todos = requests.get("{}/user/{}/todos".format(main_url, argv[1])).json()
     user_name = user_res.get("username")
     data = []
-    for task in todos:
+    for todo in todos:
         dicts = {}
-        dicts.update({"task": task.get("title"),
-                      "completed": task.get("completed"),
-                      "username": user_res.get("username")})
+        dicts.update({
+            'task': todo.get("title"),
+            'completed': todo.get("completed"),
+            'username': user_res.get("username")})
         data.append(dicts)
     dictionary = {}
     dictionary.update({argv[1]: data})
-    with open('{}.json'.format(argv[1]), 'w', encoding='UTF8') as f:
+
+    with open('{}.json'.format(argv[1]), 'w') as f:
         json.dump(dictionary, f)
