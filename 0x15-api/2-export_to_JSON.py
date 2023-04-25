@@ -23,5 +23,5 @@ if __name__ == "__main__":
     dictionary = {}
     dictionary.update({argv[1]: data})
 
-    with open('{}.json'.format(argv[1]), 'w') as f:
+    with open('{}.json'.format(argv[1]), 'w', encoding='UTF8') as f:
         json.dump(dictionary, f)
