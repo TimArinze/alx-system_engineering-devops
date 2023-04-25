@@ -8,19 +8,23 @@ from sys import argv
 
 
 if __name__ == "__main__":
-    main_url = "https://jsonplaceholder.typicode.com"
-    user_res = requests.get("{}/users/{}".format(main_url, argv[1])).json()
-    todos = requests.get("{}/user/{}/todos".format(main_url, argv[1])).json()
-    user_name = user_res.get("username")
+    main_url = "https://jsonplaceholder.typicode.com/"
+    user_url = main_url + "users/{}".format(argv[1])
+    user_details = requests.get(user_url).json()
+    user_name = user_details.get("username")
+    todos_url = main_url + "user/{}/todos".format(argv[1])
+    todos_details = requests.get(todos_url).json()
     data = []
-    for task in todos:
+    for todo in todos_details:
         dicts = {}
-        dicts.update({"userId": argv[1],
-                     "username": user_res.get("username"),
-                      "completed": task.get("completed"),
-                      "title": task.get("title")})
+        dicts.update({
+                "user_id": argv[1],
+                "user_name": user_name,
+                "completed": todo.get("completed"),
+                "task_title": todo.get("title")})
         data.append(dicts)
+
     with open('{}.csv'.format(argv[1]), 'w', encoding='UTF8') as f:
-        header = ['userId', 'username', 'completed', 'title']
+        header = ['user_id', 'user_name', 'completed', 'task_title']
         writer = csv.DictWriter(f, fieldnames=header, quoting=csv.QUOTE_ALL)
         writer.writerows(data)
