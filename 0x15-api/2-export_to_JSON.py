@@ -19,7 +19,5 @@ if __name__ == "__main__":
                       "completed": task.get("completed"),
                       "username": user_res.get("username")})
         data.append(dicts)
-    dictionary = {}
-    dictionary.update({user_res.get("id"): data})
     with open('{}.json'.format(argv[1]), 'w', encoding='UTF8') as f:
-        json.dump(dictionary, f)
+        json.dump({argv[1]: data}, f)
