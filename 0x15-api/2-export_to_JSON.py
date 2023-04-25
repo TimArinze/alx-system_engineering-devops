@@ -20,6 +20,6 @@ if __name__ == "__main__":
                       "username": user_res.get("username")})
         data.append(dicts)
     dictionary = {}
-    dictionary.update({argv[1]: data})
+    dictionary.update({user_res.get("id"): data})
     with open('{}.json'.format(argv[1]), 'w', encoding='UTF8') as f:
         json.dump(dictionary, f)
