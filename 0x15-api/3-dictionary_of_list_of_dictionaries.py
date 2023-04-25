@@ -1,6 +1,6 @@
 #!/usr/bin/python3
 """
-Gather data from an API
+Gather data from an API 2
 """
 import json
 import requests
