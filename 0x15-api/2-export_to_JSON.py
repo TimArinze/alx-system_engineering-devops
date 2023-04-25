@@ -16,9 +16,9 @@ if __name__ == "__main__":
     for todo in todos:
         dicts = {}
         dicts.update({
-            'task': todo.get("title"),
-            'completed': todo.get("completed"),
-            'username': user_res.get("username")})
+            "task": todo.get("title"),
+            "completed": todo.get("completed"),
+            "username": user_res.get("username")})
         data.append(dicts)
     dictionary = {}
     dictionary.update({argv[1]: data})
