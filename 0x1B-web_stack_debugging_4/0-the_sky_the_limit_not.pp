@@ -1,7 +1,7 @@
 # fix nginx server of slow performance
 
 exec { 'fixing nginx':
-  command => 'sed -i s//usr/share/nginx/html//var/www/html/g /etc/nginx/sites-available/default',
+  command => 'sed -i "s/15/4096/" /etc/default/nginx',
   path    => '/usr/local/bin/:/bin/'
 }
 
