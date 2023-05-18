@@ -340,5 +340,4 @@ Repo:
 GitHub repository: alx-system_engineering-devops
 Directory: 0x1A-application_server
 File: 4-reload_gunicorn_no_downtime
-  
-Copyright © 2023 ALX, All rights reserved.
+
