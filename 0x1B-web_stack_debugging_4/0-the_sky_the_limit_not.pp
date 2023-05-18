@@ -1,12 +1,14 @@
-# fix nginx server of slow performance
+# Increases the amount of traffic an Nginx server can handle
 
-exec { 'fixing nginx':
+# Increase the ULIMIT of the default file
+exec { 'fix--for-nginx':
   command => 'sed -i "s/15/4096/" /etc/default/nginx',
-  path    => '/usr/local/bin/:/bin/'
+  path    => '/usr/local/bin/:/bin'
 }
 
-# restarting nginx
-exec { 'nginx restart':
+#restart Nginx
+
+exec { 'nginx-restart':
   command => 'nginx restart',
   path    => '/etc/init.d/'
 }
